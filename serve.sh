@@ -6,7 +6,7 @@
 set -euo pipefail
 
 PORT="${1:-8000}"
-DIR="$(cd "$(dirname "$0")/static_site_src" && pwd)"
+DIR="$(cd "$(dirname "$0")/docs" && pwd)"
 
 echo "Serving site from: $DIR"
 echo "Open http://localhost:$PORT in your browser"
