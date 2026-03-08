@@ -222,13 +222,76 @@ section h2 {
 .itinerary-timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    position: relative;
+    padding-left: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.itinerary-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-primary) 0%, rgba(46, 139, 87, 0.15) 100%);
+    border-radius: 2px;
+}
+
+.day-card {
+    position: relative;
+}
+
+.day-card::before {
+    content: '';
+    position: absolute;
+    left: -2.125rem;
+    top: 1.5rem;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-primary);
+    z-index: 1;
+}
+
+.day-card h2 {
+    font-size: 1.2rem;
 }
 
 .day-card .day-date {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+.day-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.day-card ul li {
+    padding: 0.3rem 0 0.3rem 1.25rem;
+    position: relative;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.day-card ul li:last-child {
+    border-bottom: none;
+}
+
+.day-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
 }
 
 /* --- Packing Checklist --- */
@@ -264,6 +327,55 @@ section h2 {
     max-height: 500px;
     border-radius: 8px;
     border: 1px solid var(--color-border);
+}
+
+/* --- Invitees Grid --- */
+.invitees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.75rem;
+}
+
+.invitee-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.invitee-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.invitee-photo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-border);
+    background-color: var(--color-bg);
+}
+
+.invitee-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.invitee-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.invitee-blurb {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
 }
 
 /* --- Footer --- */
