@@ -1,0 +1,388 @@
+/* ============================================
+   Emily & Alex Ireland Trip — Main Styles
+   ============================================ */
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #1a6b3c;      /* Irish green */
+    --color-primary-light: #2e8b57;
+    --color-accent: #d4a843;        /* Gold accent */
+    --color-bg: #f5f3ef;            /* Warm off-white */
+    --color-surface: #ffffff;
+    --color-text: #2c2c2c;
+    --color-text-muted: #666666;
+    --color-border: #e0ddd8;
+    --font-heading: 'Georgia', serif;
+    --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --max-width: 1100px;
+    --nav-height: 60px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-light);
+}
+
+/* --- Navigation --- */
+#main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    height: var(--nav-height);
+}
+
+.nav-logo {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.nav-logo:hover {
+    color: var(--color-accent);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+/* --- Hero (Home page) --- */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 1.5rem 4rem;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.35rem;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    opacity: 0.75;
+}
+
+/* --- Page Header (Sub-pages) --- */
+.page-header {
+    background-color: var(--color-primary);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1.5rem 2.5rem;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    margin-bottom: 0.35rem;
+}
+
+.page-header p {
+    opacity: 0.85;
+    font-size: 1.1rem;
+}
+
+/* --- Main Content --- */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-primary);
+}
+
+/* --- Card Grid --- */
+.card-grid,
+.activities-grid,
+.packing-categories,
+.accommodation-list,
+.travel-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.card,
+.day-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+}
+
+.card:hover,
+.day-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2,
+.card h3,
+.day-card h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.card h3 {
+    font-size: 1.15rem;
+}
+
+.card ul {
+    list-style: disc inside;
+    color: var(--color-text-muted);
+}
+
+.card ul li {
+    padding: 0.2rem 0;
+}
+
+/* --- Itinerary Timeline --- */
+.itinerary-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    padding-left: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.itinerary-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-primary) 0%, rgba(46, 139, 87, 0.15) 100%);
+    border-radius: 2px;
+}
+
+.day-card {
+    position: relative;
+}
+
+.day-card::before {
+    content: '';
+    position: absolute;
+    left: -2.125rem;
+    top: 1.5rem;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-primary);
+    z-index: 1;
+}
+
+.day-card h2 {
+    font-size: 1.2rem;
+}
+
+.day-card .day-date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+.day-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.day-card ul li {
+    padding: 0.3rem 0 0.3rem 1.25rem;
+    position: relative;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.day-card ul li:last-child {
+    border-bottom: none;
+}
+
+.day-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+/* --- Packing Checklist --- */
+.checklist {
+    list-style: none;
+}
+
+.checklist li {
+    padding: 0.35rem 0;
+}
+
+.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.checklist input[type="checkbox"] {
+    accent-color: var(--color-primary);
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* --- Map Section --- */
+.map-container {
+    text-align: center;
+}
+
+.map-container img {
+    margin: 0 auto;
+    max-height: 500px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+/* --- Invitees Grid --- */
+.invitees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.75rem;
+}
+
+.invitee-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.invitee-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.invitee-photo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-border);
+    background-color: var(--color-bg);
+}
+
+.invitee-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.invitee-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.invitee-blurb {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border);
+}
